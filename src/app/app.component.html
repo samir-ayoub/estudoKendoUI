@@ -1,3 +1,35 @@
-<!-- <h1>{{title}}</h1>
-
-<button kendoButton (click)="onButtonClick()" [primary]="true">My Kendo UI Button</button> -->
+<kendo-chart>
+    <kendo-chart-area 
+      [margin]="chartArea.margin" 
+      [width]="chartArea.width" 
+      [background]="chartArea.background">
+      </kendo-chart-area>
+  <kendo-chart-title 
+    text="Gross domestic product growth /GDP annual %/" 
+    [align]="chartTitle.align" 
+    [padding]="chartTitle.padding">
+</kendo-chart-title>
+  <kendo-chart-legend 
+    position="bottom" 
+    orientation="horizontal" 
+    [margin]="40"></kendo-chart-legend>
+  <kendo-chart-tooltip 
+    format="{0}%" 
+    [color]="tooltip.color" 
+    [background]="tooltip.background" 
+    [padding]="tooltip.padding"></kendo-chart-tooltip>
+  <kendo-chart-category-axis>
+    <kendo-chart-category-axis-item [categories]="categories">
+    </kendo-chart-category-axis-item>
+  </kendo-chart-category-axis>
+  <kendo-chart-series>
+    <kendo-chart-series-item 
+      *ngFor="let item of series" 
+      type="line" 
+      style="smooth" 
+      [data]="item.data" 
+      [name]="item.name" 
+      [markers]="markers">
+    </kendo-chart-series-item>
+  </kendo-chart-series>
+</kendo-chart>
